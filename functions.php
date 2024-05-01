@@ -209,6 +209,13 @@ function lico_mb_general($post) {
 		'death' => 'Дата смерти',
 		'death_place' => 'Место смерти',
 		'zodiac' => 'Знак зодиака',
+		'telegr_soc' => 'Telegram',
+		'inst_soc' => 'Instagram',
+		'twit_soc' => 'Twitter',
+		'fb_soc' => 'Facebook',
+		'vk_soc' => 'Вконтакте',
+		'ok_soc' => 'Одноклассники'
+
 	
 	];
 	

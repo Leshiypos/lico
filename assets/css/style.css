@@ -151,7 +151,7 @@ h2.line {
 
 .items {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	margin: 30px 0;
 	flex-wrap: wrap;
 }
@@ -163,6 +163,7 @@ h2.line {
 	background-color: #f1f1f1;
 	position: relative;
 	margin-bottom: 1.5%;
+	margin-right: 10px; /*wp-dev*/
 }
 .item a {
 	text-decoration: none;
@@ -366,7 +367,8 @@ li.comment {
     margin-left: 15px;
 }
 .header ul.sub-menu li {
-	padding: 0;
+	/* padding: 0; */
+	padding: 5px 5px;  /*wp-dev*/
 }
 .menu-item-has-children:hover .sub-menu {
 	display: flex;

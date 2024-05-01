@@ -1,12 +1,31 @@
 <?php
 
 get_header();
+global $wp_query;
 
+$quantity = $wp_query->found_posts; //количество найденных статей в запросе
 ?>
+<div class="first">
+	<div class="container search">
+		<h1>Поиск</h1>
+		<p>Введите фамилию, имя интересующего человека</p>
+		<form action="" method="GET">
+			<input type="text" name="s" placeholder="Чью биографию изучим?" />
+		</form>
+	</div>
+</div>
 	<section class="catalog">
 		<div class="container">
 			<h1>Результаты поиска</h1>
-			<p class="search">Вы искали "<?php echo get_search_query(); ?>"</p>
+			<?php 
+			if ($quantity != 0){
+			?>
+			<p class="search">Всего найдено по запросу "<?php echo get_search_query(); ?>" статей : <?php echo $quantity; ?></p>
+			<?php 
+			} else { ?>
+			<p class="search">По запросу "<?php echo get_search_query(); ?>" ничего не найдено. Пропробуйте вести новый запрос</p>
+			<?php }
+			?>
 			<div class="items">
 				<?php
 				
