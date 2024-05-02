@@ -214,9 +214,8 @@ function lico_mb_general($post) {
 		'twit_soc' => 'Twitter',
 		'fb_soc' => 'Facebook',
 		'vk_soc' => 'Вконтакте',
-		'ok_soc' => 'Одноклассники'
-
-	
+		'ok_soc' => 'Одноклассники',
+		'site_link' => 'Сайт личности'
 	];
 	
 	foreach ($fields as $field_id => $field_title) {
@@ -244,6 +243,13 @@ function lico_save($post_id) {
 		'death',
 		'death_place',
 		'zodiac',
+		'telegr_soc',
+		'inst_soc',
+		'twit_soc',
+		'fb_soc',
+		'vk_soc',
+		'ok_soc',
+		'site_link',
 		'adv',
 		'bio_tab',
 		'photo_tab',

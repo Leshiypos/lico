@@ -391,3 +391,18 @@ li.comment {
 .item_photo:nth-child(4n) {
 	margin-right: 0;
 }
+
+/* wp-dev */
+.social_link a{
+	margin-right: 10px;
+}
+.site_link {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-weight: 600;
+	color:rgba(0, 0, 0, 1)
+}
+	.site_link svg{
+		margin-right: 10px;
+	}
