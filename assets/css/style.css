@@ -406,3 +406,22 @@ li.comment {
 	.site_link svg{
 		margin-right: 10px;
 	}
+
+	.tab_video video, .tab_video iframe{
+		width: 100% !important;
+		margin-bottom: 20px;
+	}
+
+	/* Блок рекламмы */
+.f-carousel__slide figure{
+	position: relative;
+}
+.f-carousel__slide figure figcaption{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 5px;
+	color:rgba(0, 0, 0, 1);
+}

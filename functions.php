@@ -13,6 +13,9 @@ function lico_setup() {
 	add_theme_support('title-tag');
 	register_nav_menu('top_menu', 'Главное меню');
 
+	// Добавляем произвольные тумбы
+	add_image_size( 'advertising_thumb', 317, 304, true );
+
 }
 
 add_filter('comments_open', 'lico_comments', 10, 2);
@@ -128,7 +131,7 @@ function lico_meta_boxes() {
 	
 	add_meta_box('data', 'Общие данные', 'lico_mb_general', LICO_CPT);
 	add_meta_box('tabs', 'Табы', 'lico_mb_tabs', LICO_CPT);
-	add_meta_box('adv', 'Реклама', 'lico_mb_adv', LICO_CPT);
+	//add_meta_box('adv', 'Реклама', 'lico_mb_adv', LICO_CPT);
 	
 }
 
@@ -177,7 +180,7 @@ function lico_mb_tabs($post) {
 	
 }
 
-function lico_mb_adv($post) {
+/*function lico_mb_adv($post) {
 	
 	$adv = get_post_meta($post->ID, 'adv', true);
 	
@@ -188,7 +191,7 @@ function lico_mb_adv($post) {
 	</div>
 	<?php
 	
-}
+}*/
 
 function lico_mb_general($post) {
 	
@@ -274,9 +277,13 @@ function lico_save($post_id) {
 add_action('wp_enqueue_scripts', 'lico_scripts');
 
 function lico_scripts() {
+	wp_enqueue_script('lico-carousel', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js', ['jquery']);
+	wp_enqueue_script('lico-carousel-autoplay', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js', ['jquery']);
+	wp_enqueue_style('lico-style-carousel', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css');
 	
 	wp_enqueue_style('lico-style', get_template_directory_uri().'/assets/css/style.css');
 	wp_enqueue_script('lico-script', get_template_directory_uri().'/assets/js/scripts.js', ['jquery']);
+	
 	
 }
 

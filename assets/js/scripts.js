@@ -19,7 +19,23 @@ $(document).ready(function() {
 		return false;
 		
 	});
+
+	//карусель
+
+	const container = document.getElementById("myCarousel");
+	const options = { 
+		infinite: true,
+		Navigation: false,
+		Dots : false,
+		Autoplay: {
+			timeout: 10000,
+			autoStart : true,
+		  },
+ 
+	};
+
+	new Carousel(container, options, { Autoplay });
 	
-});
+}); // Конец Ready
 	
 });

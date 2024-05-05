@@ -203,9 +203,35 @@ foreach ($pa as $pp) {
 							?>
 						</ul>
 					</div>
+						<?php
+						?>
+					<!-- Блок рекламы -->
+					<?php
+						$adv_field = "";
+						$adv_field = get_field('adv_field'); 
+						if ($adv_field){ 
+					?>
 					<div class="adv_block">
-					
+					<div class="f-carousel" id="myCarousel">
+						<!-- Начала слайда -->
+						<?php foreach ($adv_field as $adv_single){ ?>
+							<div class="f-carousel__slide">
+								<a href="<?php if ($adv_single['adv_link']) { echo $adv_single['adv_link']; } else {echo '#';} ?>">
+									<figure>
+										<img src="<?php echo wp_get_attachment_image_url($adv_single['adv_img'], 'advertising_thumb', false); ?>" />
+										<?php if ($adv_single['adv_title']) { ?>
+											<figcaption><?php echo $adv_single['adv_title']; ?></figcaption>
+										<?php } ?>
+									</figure>
+								</a>
+							</div>
+						<?php } ?>
+						<!-- КОНЕЦ слайда -->
+
 					</div>
+					</div>
+				<?php } ?>
+					<!-- КОНЕЦ Блок рекламы -->
 				</div>
 				<div class="card_right">
 
@@ -256,9 +282,10 @@ foreach ($pa as $pp) {
 						<div class="tab tab_active tab_bio">
 							<?php echo apply_filters('the_content', get_the_content()); ?>
 						</div>
-						<div class="tab tab_photo">
+						<div class="tab tab_photo" style="display: none;">
 							<div class="items_photos">
 								<?php
+								$photo_gallery = "";
 								$photo_gallery = get_field('photo_gallery');
 								
 								if ($photo_gallery) {
@@ -274,10 +301,33 @@ foreach ($pa as $pp) {
 								?>
 							</div>
 						</div>
-						<div class="tab tab_video">
-							1234
+						<div class="tab tab_video" style="display: none;">
+							<?php
+								$video_gallery = '';
+								$video_gallery = get_field("video_gallery");
+
+								if($video_gallery){
+									foreach ($video_gallery as $single_vigeo){ ?>
+										<video width="<?php $single_vigeo['width']; ?>" height="<?php $single_vigeo['height']; ?>" controls>
+											<source src="<?php echo $single_vigeo['url']; ?>" type="<?php echo $$single_vigeo['mime-type']; ?>">
+										</video>
+							<?php 
+									}
+								}
+							?>
+						<?php 
+							$youtube_link = '';
+							$youtube_link = get_field('youtube_link'); 
+							if ($youtube_link){
+								foreach ($youtube_link as $video){
+									foreach ($video as $single){
+										echo $single;
+									}
+								}
+							}
+						?>
 						</div>
-						<div class="tab tab_revs">
+						<div class="tab tab_revs" style="display: none;">
 							<?php comments_template(); ?>
 						</div>
 					</div>
