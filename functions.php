@@ -15,6 +15,7 @@ function lico_setup() {
 
 	// Добавляем произвольные тумбы
 	add_image_size( 'advertising_thumb', 317, 304, true );
+	add_image_size( 'gallery_thumb', 210, 280, true );
 
 }
 
@@ -31,7 +32,7 @@ function lico_comments( $open, $post_id ) {
 	
 }
 
-add_action('admin_menu', 'lico_menu');
+//add_action('admin_menu', 'lico_menu');
 
 function lico_menu() {
 	
@@ -280,6 +281,9 @@ function lico_scripts() {
 	wp_enqueue_script('lico-carousel', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js', ['jquery']);
 	wp_enqueue_script('lico-carousel-autoplay', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js', ['jquery']);
 	wp_enqueue_style('lico-style-carousel', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css');
+	
+	wp_enqueue_script('lico-fancybox', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js');
+	wp_enqueue_style('lico-style-fancybox', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css');
 	
 	wp_enqueue_style('lico-style', get_template_directory_uri().'/assets/css/style.css');
 	wp_enqueue_script('lico-script', get_template_directory_uri().'/assets/js/scripts.js', ['jquery']);

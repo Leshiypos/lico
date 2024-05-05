@@ -393,6 +393,9 @@ li.comment {
 }
 
 /* wp-dev */
+.items_photos a{
+	margin-right: 8px;
+}
 .social_link a{
 	margin-right: 10px;
 }

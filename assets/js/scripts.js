@@ -35,6 +35,11 @@ $(document).ready(function() {
 	};
 
 	new Carousel(container, options, { Autoplay });
+
+	//fancybox
+	Fancybox.bind("[data-fancybox]", {
+		// Your custom options
+	  });
 	
 }); // Конец Ready
 	

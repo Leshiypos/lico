@@ -289,13 +289,11 @@ foreach ($pa as $pp) {
 								$photo_gallery = get_field('photo_gallery');
 								
 								if ($photo_gallery) {
-									foreach ($photo_gallery as $photo_link) {
-										echo '<div class="item_photo">';
-										echo '<a href="javascript:void(0);" class="open_photo">';
-										echo '<div class="item_photo_bg" style="background-image: url('.$photo_link.');"></div>';
-										echo '</a>';
-										echo '</div>';
-										
+									foreach ($photo_gallery as $photo_link) { ?>
+										<a href="<?php echo wp_get_attachment_image_url($photo_link, 'full', false); ?>" data-fancybox="gallery " data-caption="Caption #1">
+										<img src="<?php echo wp_get_attachment_image_url($photo_link, 'gallery_thumb' , false); ?>" />
+										</a>
+								<?php		
 									}
 								}
 								?>
