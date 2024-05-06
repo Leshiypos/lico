@@ -19,6 +19,13 @@ $(document).ready(function() {
 		return false;
 		
 	});
+	
+	$('#search_icon').click(function(){
+		$('#search_header').addClass('form_sivible');
+	})
+	$(window).scroll(function(){
+		$('#search_header').removeClass('form_sivible');
+	})
 
 	//карусель
 
@@ -35,12 +42,11 @@ $(document).ready(function() {
 	};
 
 	new Carousel(container, options, { Autoplay });
-
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
 		// Your custom options
 	  });
-	
+
 }); // Конец Ready
 	
 });

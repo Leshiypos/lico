@@ -290,7 +290,7 @@ foreach ($pa as $pp) {
 								
 								if ($photo_gallery) {
 									foreach ($photo_gallery as $photo_link) { ?>
-										<a href="<?php echo wp_get_attachment_image_url($photo_link, 'full', false); ?>" data-fancybox="gallery " data-caption="Caption #1">
+										<a href="<?php echo wp_get_attachment_image_url($photo_link, 'full', false); ?>" data-fancybox="gallery " data-caption="<?php echo wp_get_attachment_caption($photo_link); ?>">
 										<img src="<?php echo wp_get_attachment_image_url($photo_link, 'gallery_thumb' , false); ?>" />
 										</a>
 								<?php		

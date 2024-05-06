@@ -428,3 +428,36 @@ li.comment {
 	padding: 0 5px;
 	color:rgba(0, 0, 0, 1);
 }
+/* Кнопка поиска */
+.search_icon svg{
+	fill: rgba(255,255,255,.6);
+	cursor: pointer;
+	margin-left: 10px;
+	width: 23px;
+	height: 23px;
+	margin-top: 3px;
+}
+	.search_icon {
+		position: relative;
+	}
+	.search_icon form{
+		position: absolute;
+		bottom : -70px;
+		right: 0;	
+		opacity: 0;
+		transition: all 500ms;
+	}
+	.search_icon form.form_sivible{
+		opacity: 1;
+		bottom : -55px;
+	}
+	.search_icon input{
+		padding: 10px;
+		border-radius: 7px;
+		border: none;
+		background: rgba(169, 169, 169, 0.35);
+		font-size: 16px;
+	}
+	.search_icon input::placeholder{
+		color: rgb(80, 80, 80);
+	}
