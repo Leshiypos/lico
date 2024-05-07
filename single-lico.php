@@ -281,6 +281,31 @@ foreach ($pa as $pp) {
 					<div class="tab_content">
 						<div class="tab tab_active tab_bio">
 							<?php echo apply_filters('the_content', get_the_content()); ?>
+							<!-- Блок Биографии -->
+							<?php
+								$biography = get_field('biography');
+								
+								// Вывод ссылок навигации
+								if ($biography){
+									echo '<div class="nav_link_bio">';
+									foreach ($biography as $bio_single){ ?>
+										<a href="#<?php echo $bio_single['title']; ?>"><?php echo $bio_single['title']; ?></a>
+							<?php		
+									}
+									echo '</div>';
+								}
+							?>
+							
+							<?php 
+							// Вывод контента биографии
+							if ($biography){
+								foreach ($biography as $bio_single){ ?>
+									<div id="<?php echo $bio_single['title']; ?>"> <?php  echo $bio_single['content'];?> </div>
+							<?php		
+									}
+								}
+							?>
+							<!-- КОНЕЦ Блок Биографии -->
 						</div>
 						<div class="tab tab_photo" style="display: none;">
 							<div class="items_photos">

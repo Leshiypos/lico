@@ -22,6 +22,7 @@ $(document).ready(function() {
 	
 	$('#search_icon').click(function(){
 		$('#search_header').addClass('form_sivible');
+		$('#search_header input').focus();
 	})
 	$(window).scroll(function(){
 		$('#search_header').removeClass('form_sivible');

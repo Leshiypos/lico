@@ -461,3 +461,20 @@ li.comment {
 	.search_icon input::placeholder{
 		color: rgb(80, 80, 80);
 	}
+
+	/* Биография */
+.nav_link_bio{
+	display: flex;
+	justify-content: center;
+	padding-top: 5px;
+	margin-top: 30px;
+	border-top: 1px solid #000;
+}
+	.nav_link_bio a{
+		display: block;
+		padding: 10px;
+		background-color: #9d42ad;
+		color: #fff;
+		text-decoration: none;
+		margin: 10px;
+	}
