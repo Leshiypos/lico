@@ -277,7 +277,21 @@ foreach ($pa as $pp) {
 						
 						?>
 					</ul>
+					<?php $post_lico = get_terms([
+						'taxonomy' => 'lico_cat',
+						'hide_empty' => false
+					]);
+
+
+					echo "<pre>";
+						print_r($post_lico);
+					echo "</pre>";
 					
+					?>
+
+
+
+
 					<div class="tab_content">
 						<div class="tab tab_active tab_bio">
 							<?php echo apply_filters('the_content', get_the_content()); ?>

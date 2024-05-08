@@ -1,5 +1,7 @@
 <?php
 
+require_once get_template_directory().'/inc/widgets.php';
+
 define('LICO_CPT', 'lico');
 define('LICO_PHOTO_CPT', 'lico_photo');
 define('LICO_VIDEO_CPT', 'lico_video');
