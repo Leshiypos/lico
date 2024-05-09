@@ -478,3 +478,9 @@ li.comment {
 		text-decoration: none;
 		margin: 10px;
 	}
+	.adv_block_pers{
+		margin: 20px 0;
+	}
+	.sidebar > div{
+		margin: 20px 0;
+	}

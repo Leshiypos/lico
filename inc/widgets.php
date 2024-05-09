@@ -11,7 +11,7 @@ function lico_widgets_init() {
     register_sidebar( array(
         'name'          =>  $tax->name,
         'id'            => 'sidebar-'.$tax->term_taxonomy_id,
-        'description'   => esc_html__( 'Add widgets here.', 'wayup' ),
+        'description'   => 'Виджеты для категории '.$tax->name,
         'before_widget' => '<div id="%1$s" class="widget subscr %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<div class="'.$tax->slug.'"><svg width="19" height="19"><use xlink:href="#mail"></use></svg>',

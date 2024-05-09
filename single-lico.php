@@ -149,7 +149,7 @@ foreach ($pa as $pp) {
 								?>							
 								<!-- Конец иконки социальных сетей -->
 
-															 	<!-- Начало иконки социальных сетей -->
+								<!-- Начало иконки социальных сетей -->
 																 <?php 
 									if (!empty($twit_soc)){ 
 								?>
@@ -209,7 +209,8 @@ foreach ($pa as $pp) {
 					<?php
 						$adv_field = "";
 						$adv_field = get_field('adv_field'); 
-						if ($adv_field){ 
+						$but_adv_off = get_field('but_adv_off');
+						if ($adv_field & $but_adv_off){ 
 					?>
 					<div class="adv_block">
 					<div class="f-carousel" id="myCarousel">
@@ -232,7 +233,36 @@ foreach ($pa as $pp) {
 					</div>
 				<?php } ?>
 					<!-- КОНЕЦ Блок рекламы -->
+
+					<!-- Персонализированный виджет -->
+					<?php  
+						$but_perswidget_off = get_field('but_perswidget_off'); //Тригер отключения персонализированного виджета
+						$html_code = get_field('html_code'); //HTML персонализированного виджета
+
+						if ($but_perswidget_off){ ?>
+							<div class="adv_block_pers">
+								<?php echo $html_code; ?>
+							</div>
+						<?php
+						}
+					?>
+					<!-- КОНЕЦ Персонализированный виджет -->
+
+					<!-- Сайдбар -->
+					<?php
+					$but_widget_off = get_field('but_widget_off'); //Тригер включения и отключения доп. виджетов
+					
+					if ($but_widget_off){		//ПРоверка на активацию общих виджетов в настройках личности
+						if ( is_active_sidebar( 'sidebar-'.$category ) ) { ?>
+							<aside class="sidebar">
+							<?php dynamic_sidebar( 'sidebar-'.$category); ?>
+							</aside>
+					<?php }
+					}
+					?>
+					<!-- КОНЕЦ Сайдбар -->
 				</div>
+
 				<div class="card_right">
 
 					<ul class="tabs">
@@ -277,20 +307,6 @@ foreach ($pa as $pp) {
 						
 						?>
 					</ul>
-					<?php $post_lico = get_terms([
-						'taxonomy' => 'lico_cat',
-						'hide_empty' => false
-					]);
-
-
-					echo "<pre>";
-						print_r($post_lico);
-					echo "</pre>";
-					
-					?>
-
-
-
 
 					<div class="tab_content">
 						<div class="tab tab_active tab_bio">
