@@ -1,6 +1,7 @@
 <?php
 
 require_once get_template_directory().'/inc/widgets.php';
+require get_template_directory() . '/inc/redux-option-panel.php'; // Подключение редукс 
 
 
 define('LICO_CPT', 'lico');
