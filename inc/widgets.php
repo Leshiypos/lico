@@ -3,6 +3,16 @@
 function lico_widgets_init() {
 
 	// Получаем список категорий CPT lico
+	register_sidebar( array(
+		'name'          =>  'Для всех категорий',
+		'id'            => 'sidebar-public',
+		'description'   => 'Виджеты для всех категорий',
+		'before_widget' => '<div id="%1$s" class="widget subscr %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="public-widjet"><svg width="19" height="19"><use xlink:href="#mail"></use></svg>',
+		'after_title'   => '</div>',
+	) );
+	
 	global $wpdb;
 	$lico_cat_tax = $wpdb->get_results("SELECT name,taxonomy,term_taxonomy_id,slug FROM wp_terms,wp_term_taxonomy WHERE wp_terms.term_id=wp_term_taxonomy.term_id AND wp_term_taxonomy.taxonomy='lico_cat'");
 

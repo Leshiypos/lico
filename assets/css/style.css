@@ -45,8 +45,8 @@ body {
 }
 
 .header {
-	background: #333;
-	background-image: linear-gradient( 58.2deg,  rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7% );
+	background: #ffffff;
+	/* background-image: linear-gradient( 58.2deg,  rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7% ); */
 }
 .header ul {
 	list-style: none;
@@ -67,6 +67,8 @@ body {
 	font-size: 26px;
 	text-decoration: none;
 	color: white;
+	width: 100px;
+	height: 44px;
 }
 .header .logo span {
 	color: #fff;
@@ -75,14 +77,14 @@ body {
 .header a {
 	font-size: 20px;
 	text-decoration: none;
-	color: white;
+	color: rgb(0, 0, 0);
 	font-weight: 300;
 	margin-left: 15px;
 }
 .header a.btn {
-	background: rgba(255, 255, 255, .3);
+	background: rgb(216 216 216);
 	border-radius: 4px;
-	color: white;
+	color: rgb(255, 255, 255);
 	margin-left: 45px;
 	font-size: 16px;
 	padding: 5px 15px;
@@ -92,7 +94,7 @@ body {
 	padding: 5px 15px;
 	margin-left: 10px;
 	color: white;
-	background: red;
+	background: #009fe3;
 }
 .header nav {
 	display: flex;
@@ -358,17 +360,20 @@ li.comment {
     width: 250px;
     display: none;
     position: absolute;
-    background: #333;
-    background-image: linear-gradient(58.2deg, rgba(40, 91, 212, 0.73) -3%, rgba(171, 53, 163, 0.45) 49.3%, rgba(255, 204, 112, 0.37) 97.7%);
+    background: #3caec1;
+    /* background-image: linear-gradient(58.2deg, rgba(40, 91, 212, 0.73) -3%, rgba(171, 53, 163, 0.45) 49.3%, rgba(255, 204, 112, 0.37) 97.7%); */
     flex-direction: column;
     padding: 15px 10px 15px 3px;
     margin-top: 39px;
-    border-radius: 0 0 15px 15px;
+    border-radius: 8px;
     margin-left: 15px;
 }
 .header ul.sub-menu li {
 	/* padding: 0; */
 	padding: 5px 5px;  /*wp-dev*/
+}
+.header ul.sub-menu a{
+	color: #ffffff;
 }
 .menu-item-has-children:hover .sub-menu {
 	display: flex;

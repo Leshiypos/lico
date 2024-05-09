@@ -10,7 +10,7 @@
 <body>
 	<header class="header">
 		<div class="container">
-			<a href="/" class="logo">Лого<span>Сюда</span></a>
+			<a href="/" class="logo"><img src="<?php echo get_template_directory_uri().'/assets/images/logo.svg' ?>" /></a>
 			<nav>
 				<?php wp_nav_menu(); ?>
 				<a href="/add" class="btn">Разместить биографию</a>

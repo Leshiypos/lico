@@ -248,6 +248,20 @@ foreach ($pa as $pp) {
 					?>
 					<!-- КОНЕЦ Персонализированный виджет -->
 
+					<!-- Общий сайдбар -->
+					<?php
+					$but_widgetpubl_off = get_field('but_widgetpubl_off'); //Тригер включения и отключения доп. виджетов
+					
+					if ($but_widgetpubl_off){		//ПРоверка на активацию общих виджетов в настройках личности
+						if ( is_active_sidebar( 'sidebar-public') ) { ?>
+							<aside class="sidebar">
+							<?php dynamic_sidebar( 'sidebar-public'); ?>
+							</aside>
+					<?php }
+					}
+					?>
+					<!-- КОНЕЦ Общий сайдбар -->
+
 					<!-- Сайдбар -->
 					<?php
 					$but_widget_off = get_field('but_widget_off'); //Тригер включения и отключения доп. виджетов
