@@ -31,6 +31,7 @@ $(document).ready(function() {
 	//карусель
 
 	const container = document.getElementById("myCarousel");
+	const container2 = document.getElementById("adverPubl");
 	const options = { 
 		infinite: true,
 		Navigation: false,
@@ -42,7 +43,12 @@ $(document).ready(function() {
  
 	};
 
-	new Carousel(container, options, { Autoplay });
+	new Carousel(container, options, { Autoplay }); //Реклама для страницы личности
+	new Carousel(container2, options, { Autoplay }); //Реклама общая для все категорий
+
+
+
+
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
 		// Your custom options

@@ -2,6 +2,7 @@
 
 get_header();
 
+global $lico_option;
 $post_id = get_the_ID();
 $post = get_post($post_id);
 $terms = wp_get_post_terms($post_id, LICO_TAX);
@@ -233,6 +234,37 @@ foreach ($pa as $pp) {
 					</div>
 				<?php } ?>
 					<!-- КОНЕЦ Блок рекламы -->
+
+					<!-- Персонализированный Блок рекламы -->
+					<?php 
+						$gallery_pers = $lico_option['advertising-block-pablic']; 
+						$but_adv_publ_off = get_field('but_adv_publ_off'); 
+						
+						if ($but_adv_publ_off) {
+					?>
+					<div class="adv_block">
+					<div class="f-carousel" id="adverPubl">
+						<!-- Начала слайда -->
+						<?php foreach ($gallery_pers as $adv_single){ ?>
+							<div class="f-carousel__slide">
+								<a href="<?php if ($adv_single['url']) { echo $adv_single['url']; } else {echo '#';} ?>">
+									<figure>
+										<img src="<?php echo wp_get_attachment_image_url($adv_single['attachment_id'], 'advertising_thumb', false); ?>" />
+										<?php if ($adv_single['title']) { ?>
+											<figcaption><?php echo $adv_single['title']; ?></figcaption>
+										<?php } ?>
+									</figure>
+								</a>
+							</div>
+						<?php } ?>
+						<!-- КОНЕЦ слайда -->
+
+					</div>
+					</div>
+					<?php 
+						}
+					?>
+					<!-- КОНЕЦ Персонализированный Блок рекламы -->
 
 					<!-- Персонализированный виджет -->
 					<?php  

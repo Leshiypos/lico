@@ -13,7 +13,7 @@ if ( ! class_exists( 'Redux' ) ) {
 }
 
 // This is your option name where all the Redux data is stored.
-$opt_name = 'landsky_option';  // YOU MUST CHANGE THIS.  DO NOT USE 'redux_demo' IN YOUR PROJECT!!!
+$opt_name = 'lico_option';  // YOU MUST CHANGE THIS.  DO NOT USE 'redux_demo' IN YOUR PROJECT!!!
 
 // Uncomment to disable demo mode.
 /* Redux::disable_demo(); */  // phpcs:ignore Squiz.PHP.CommentedOutCode
@@ -350,7 +350,7 @@ Redux::set_section(
 				'title'    => 'E-mail',
 				'subtitle' => 'Введите адрес электронной почты',
 				'desc'     => '',
-				'default'  => 'info@landsky.by',
+				'default'  => 'info@lico.by',
 			),
 			array(
 				'id'       => 'facebook',
@@ -398,7 +398,7 @@ Redux::set_section(
 				'title'    => 'Копирайт сайта',
 				'subtitle' => 'Кипирайт для отображения в футере сайта',
 				'desc'     => '',
-				'default'  => '© ООО “ГалаВэй”, LandSky, 2012 - 2024',
+				'default'  => '© ООО “ГалаВэй”, lico, 2012 - 2024',
 			),
 		),
 	)
@@ -413,11 +413,17 @@ Redux::set_section(
 		'subsection' => true,
 		'fields'     => array(
 			array(
-				'id'       => 'advertising-block-pablic',
-				'type'     => 'gallery',
-				'title'    => 'Реклама на страницах',
-				'subtitle' => 'Выберите рекламные банеры',
-				'desc'     => 'При выборе рекламных банеров укажите в описании рекламные ссылки',
+				'id'          => 'advertising-block-pablic',
+				'type'        => 'slides',
+				'title'       => 'Реклама на страницах',
+				'subtitle'    => 'Выберите рекламные банеры',
+				'desc'        => '',
+				'placeholder' => array(
+					'title'       => 'Введите рекламный текст',
+					'description' => esc_html__( 'Description Here', 'your-textdomain-here' ),
+					'url'         => 'Рекламаная ссылка'
+				),
+				'show'        => array( 'description' => false, 'title' => true, 'url' => true ),
 			),
 		),
 	)
