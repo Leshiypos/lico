@@ -152,6 +152,13 @@ h2.line {
 	font-size: 28px;
 	font-weight: normal;
 }
+h3.line {
+	display: block;
+	width: 100%;
+	font-size: 28px;
+	font-weight: normal;
+	font-weight: 600;
+}
 
 .items {
 	display: flex;
@@ -190,6 +197,9 @@ h2.line {
 }
 .card_left {
 	width: 26%;
+}
+div.card_left.mobile{
+	display: none;
 }
 .card_right {
 	width: calc(74% - 30px);

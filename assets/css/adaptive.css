@@ -1,3 +1,12 @@
+@media (max-width: 1230px){
+	.header a {
+		font-size: 14px;
+	}
+	.header a.btn,.header a.btn.btn_small {
+		font-size: 10px;
+	}
+
+}
 @media (max-width: 1080px){
 	.item {
 		width: 100%;
@@ -8,7 +17,7 @@
 		}
 }
 
-@media (max-width: 590px){
+@media (max-width: 1000px){
 	.header {
 		background-color: #009FE3;
 	}
@@ -34,6 +43,7 @@
 		/* Меню навигации */
 		#nav_main_menu{
 			display: none;
+			text-align: right;
 		}
 		.header nav {
 			flex-flow: column;
@@ -145,4 +155,91 @@
 			font-size: 16px;
 			margin: 15px 0;
 		}
+		.first form {
+			width: 100%;
+		}
+}
+
+/* Страница личности */
+@media (max-width: 1000px){
+.container h1, .adv_block h1{
+	font-size: 32px;
+}
+.container h2,.adv_block h2{
+	font-size: 26px;
+}
+.container h3,.adv_block h3{
+	font-size: 30px;
+}
+.author_info h6,.adv_block h6 {
+	font-size: 18px;
+}
+.author_info p {
+	text-align: left!important;
+}
+.container p,.tabs .tab,.adv_block p{
+	font-size: 22px;
+	line-height: 1.5;
+	text-align: justify;
+}
+.nav_link_bio {
+	font-size: 26px;
+	text-align: center;
+}
+	.card_cols {
+		flex-flow: column-reverse;
+	}
+		.card_cols>div{
+			width: 100%;
+		}
+		.author_photo.descop{
+			display: none;
+		}
+		.author_info.descop{
+			display: none;
+		}
+	.author_photo {
+		background-position: center;
+	}
+	.tabs {
+		flex-flow: row wrap;
+	}
+		.tabs li{
+			margin: 1px;
+		}
+
+		div.card_left.mobile{
+			display: block;
+			width: 100%;
+		}
+
+		.ya-share2__container_mobile.ya-share2__container_size_m .ya-share2__icon {
+			height: 50px!important;
+			width: 50px!important;
+		}
+		.ya-share2__list.ya-share2__list_direction_horizontal{
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+		}
+		.social_link {
+			display: flex;
+			justify-content: space-between;
+		}
+			.social_link svg {
+				width: 50px!important;
+				height: 50px!important;
+			}
+			.site_link {
+				font-size: 18px;
+			}
+			.site_link svg {
+				width: 50px!important;
+				height: 50px!important;
+			}
+	.adv_block {
+		max-width: 304px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
