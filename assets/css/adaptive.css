@@ -185,7 +185,11 @@
 .nav_link_bio {
 	font-size: 26px;
 	text-align: center;
+	flex-flow: row wrap;
 }
+	.nav_link_bio a {
+		flex: 1;
+	}
 	.card_cols {
 		flex-flow: column-reverse;
 	}
@@ -241,5 +245,12 @@
 		max-width: 304px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+}
+
+@media (max-width : 444px){
+	.site_link svg, .social_link svg, .ya-share2__container_mobile.ya-share2__container_size_m .ya-share2__icon {
+		width: 30px!important;
+		height: 30px!important;
 	}
 }

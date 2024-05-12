@@ -24,14 +24,14 @@ $(document).ready(function() {
 
 var winW = $(window).width();
 
-if (winW < 590){
+if (winW < 1000){
 	$('#but_menu').click(function(){
 	  $('#nav_main_menu').slideToggle();
 	})
 	
-	$(window).scroll(function(){
-	  $('#nav_main_menu').slideUp();
-	})
+	// $(window).scroll(function(){
+	//   $('#nav_main_menu').slideUp();
+	// })
 	
 	$('#nav_main_menu a').click(function(){
 	  $('#nav_main_menu').slideUp();
@@ -66,8 +66,12 @@ if (winW < 590){
  
 	};
 
-	new Carousel(container, options, { Autoplay }); //Реклама для страницы личности
-	new Carousel(container2, options, { Autoplay }); //Реклама общая для все категорий
+	if (container){
+		new Carousel(container, options, { Autoplay }); //Реклама для страницы личности
+	}
+	if (container2){
+		new Carousel(container2, options, { Autoplay }); //Реклама общая для все категорий
+	}
 
 }); // Конец Ready
 	

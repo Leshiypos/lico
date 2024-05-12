@@ -211,7 +211,7 @@ foreach ($pa as $pp) {
 						$adv_field = "";
 						$adv_field = get_field('adv_field'); 
 						$but_adv_off = get_field('but_adv_off');
-						if ($adv_field & $but_adv_off){ 
+						if ($adv_field and $but_adv_off){ 
 					?>
 					<div class="adv_block">
 					<div class="f-carousel" id="myCarousel">
