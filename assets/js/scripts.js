@@ -19,6 +19,24 @@ $(document).ready(function() {
 		return false;
 		
 	});
+
+	//Копка мобильного меню
+
+var winW = $(window).width();
+
+if (winW < 590){
+	$('#but_menu').click(function(){
+	  $('#nav_main_menu').slideToggle();
+	})
+	
+	$(window).scroll(function(){
+	  $('#nav_main_menu').slideUp();
+	})
+	
+	$('#nav_main_menu a').click(function(){
+	  $('#nav_main_menu').slideUp();
+	})
+	}
 	
 	$('#search_icon').click(function(){
 		$('#search_header').toggleClass('form_sivible');
@@ -27,6 +45,11 @@ $(document).ready(function() {
 	$(window).scroll(function(){
 		$('#search_header').removeClass('form_sivible');
 	})
+
+		//fancybox
+		Fancybox.bind("[data-fancybox]", {
+			// Your custom options
+		  });
 
 	//карусель
 
@@ -45,14 +68,6 @@ $(document).ready(function() {
 
 	new Carousel(container, options, { Autoplay }); //Реклама для страницы личности
 	new Carousel(container2, options, { Autoplay }); //Реклама общая для все категорий
-
-
-
-
-	//fancybox
-	Fancybox.bind("[data-fancybox]", {
-		// Your custom options
-	  });
 
 }); // Конец Ready
 	

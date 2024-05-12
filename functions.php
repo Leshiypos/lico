@@ -290,6 +290,7 @@ function lico_scripts() {
 	wp_enqueue_style('lico-style-fancybox', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css');
 	
 	wp_enqueue_style('lico-style', get_template_directory_uri().'/assets/css/style.css');
+	wp_enqueue_style('lico-style-adaptive', get_template_directory_uri().'/assets/css/adaptive.css');
 	wp_enqueue_script('lico-script', get_template_directory_uri().'/assets/js/scripts.js', ['jquery']);
 	
 	

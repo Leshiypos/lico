@@ -3,6 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -11,8 +12,15 @@
 <body>
 	<header class="header">
 		<div class="container">
-			<a href="/" class="logo"><img src="<?php echo get_template_directory_uri().'/assets/images/logo.svg' ?>" /></a>
-			<nav>
+			<div class="mobile_header" >
+				<a href="/" class="logo"><img src="<?php if (wp_is_mobile()) {echo get_template_directory_uri().'/assets/images/logo_white.svg'; } else {echo get_template_directory_uri().'/assets/images/logo.svg';} ?>" /></a>
+				<svg id="but_menu" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M28.125 13.125H1.875C0.839473 13.125 0 13.9645 0 15C0 16.0355 0.839473 16.875 1.875 16.875H28.125C29.1605 16.875 30 16.0355 30 15C30 13.9645 29.1605 13.125 28.125 13.125Z" fill="white"/>
+					<path d="M1.875 8.12503H28.125C29.1605 8.12503 30 7.28556 30 6.25003C30 5.2145 29.1605 4.37503 28.125 4.37503H1.875C0.839473 4.37503 0 5.2145 0 6.25003C0 7.28556 0.839473 8.12503 1.875 8.12503Z" fill="white"/>
+					<path d="M28.125 21.875H1.875C0.839473 21.875 0 22.7145 0 23.75C0 24.7855 0.839473 25.625 1.875 25.625H28.125C29.1605 25.625 30 24.7855 30 23.75C30 22.7145 29.1605 21.875 28.125 21.875Z" fill="white"/>
+				</svg>
+			</div>
+			<nav id="nav_main_menu">
 				<?php wp_nav_menu(); ?>
 				<a href="/add" class="btn">Разместить биографию</a>
 				<a href="/contact" class="btn btn_small">Связаться с нами</a>

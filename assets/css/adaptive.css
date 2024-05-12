@@ -1,0 +1,148 @@
+@media (max-width: 1080px){
+	.item {
+		width: 100%;
+		flex: 1 1 200px
+	}
+		.item_img {
+			background-position: center;
+		}
+}
+
+@media (max-width: 590px){
+	.header {
+		background-color: #009FE3;
+	}
+	.header a{
+		font-size: 28px;
+	}
+	.header .container {
+		width: 100%;
+		margin: 0;
+		padding: 0 5px;
+		justify-content: flex-end;
+		flex-flow: column ;
+	}
+	.logo img {
+		fill : #ffffff!important;
+	}
+	.items{
+		flex-flow: column;
+	}
+		.item {
+			min-height: 400px;
+		}
+		/* Меню навигации */
+		#nav_main_menu{
+			display: none;
+		}
+		.header nav {
+			flex-flow: column;
+			justify-content: flex-end;
+			align-items:flex-end;
+			width: 100%;
+		}
+		.header nav div {
+			width: 100%;
+		}
+		.menu-menu-1-container {
+			margin-bottom: 20px;
+		}
+		.menu-menu-1-container ul {
+			display: flex;
+			flex-flow: column;
+			justify-content: flex-end;
+			margin-top: 10px;
+			margin-right: 20px;
+		}
+		.menu-menu-1-container ul li {
+			padding: 0;
+			display: block;
+		}
+		.menu-menu-1-container>ul>li {
+			border-bottom: 1px solid rgba(255, 255, 255, .5);
+		}
+		#but_menu {
+			margin-left: auto;
+			cursor: pointer;
+		}
+		#menu-menu-1 a {
+			width: 100%;
+			display: inline-block;
+			text-align: right;
+			padding: 15px 0;
+			padding-right: 30px;
+			color: rgba(255, 255, 255, 1);
+			font-weight: 400;
+		}
+			.header ul.sub-menu {
+				display: block;
+				position: static;
+				margin: 0;
+				padding: 0;
+				font-size: 20px;
+				background : none;
+				width: 100%;
+				margin-top: -10px;
+				margin-bottom: 10px;
+			}
+			.header ul.sub-menu a{
+				color: rgba(255, 255, 255, .7)!important;
+				font-size: 16px;
+				padding-top: 5px !important;
+				padding-bottom: 5px !important;
+			}
+	/* Кнопки меню */
+	.mobile_header {
+		display: flex;
+		width: 100%;
+		align-self: flex-start;
+		flex-flow: row;
+		align-items: center;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.mobile_header svg {
+		display: block;
+	}
+	.header a.btn{
+		font-size: 28px;
+		display: inline-block;
+		background: rgb(0 64 91 / 60%);
+		text-align: right;
+		margin-right: 20px;
+		margin-top: 10px;
+	}
+	.header a.btn.btn_small {
+		font-size: 28px;
+
+	}
+	/* Социальный блок */
+	.header ul.social {
+		margin-right: 20px;
+	}
+	.header ul.social{
+		justify-content: space-between;
+		width: 100%;
+	}
+	.header ul.social img{
+		height: 40px;
+		width: 40px;
+	}
+	/* Форма поиска */
+	.search_icon svg {
+		display: none;
+
+	}
+		.search_icon form {
+			position: static;
+			bottom: -70px;
+			right: 0;
+			opacity: 1;
+		}
+		.search_icon input {
+			width: 95%;
+			background: rgb(255 255 255 / 75%);
+			font-size: 16px;
+			margin: 15px 0;
+		}
+}
