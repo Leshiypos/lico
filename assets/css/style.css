@@ -482,6 +482,7 @@ li.comment {
 	}
 	.search_icon input::placeholder{
 		color: rgb(80, 80, 80);
+		text-align: right;
 	}
 
 	/* Биография */
