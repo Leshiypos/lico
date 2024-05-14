@@ -131,13 +131,17 @@
 		margin-right: 20px;
 	}
 	.header ul.social{
-		justify-content: space-between;
+		justify-content: flex-end;
 		width: 100%;
 	}
 
 	.header ul.social img{
 		height: 40px;
 		width: 40px;
+	}
+	.social li a{
+		margin-left: 0!important;
+		margin-right: 20px;
 	}
 	/* Форма поиска */
 	.search_icon svg {
