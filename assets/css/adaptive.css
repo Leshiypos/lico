@@ -22,7 +22,7 @@
 		background-color: #009FE3;
 	}
 	.header a{
-		font-size: 28px;
+		font-size: 22px;
 	}
 	.header .container {
 		width: 100%;
@@ -115,7 +115,7 @@
 		display: block;
 	}
 	.header a.btn{
-		font-size: 28px;
+		font-size: 22px;
 		display: inline-block;
 		background: rgb(0 64 91 / 60%);
 		text-align: right;
@@ -123,7 +123,7 @@
 		margin-top: 10px;
 	}
 	.header a.btn.btn_small {
-		font-size: 28px;
+		font-size: 22px;
 
 	}
 	/* Социальный блок */
@@ -182,8 +182,11 @@
 	line-height: 1.5;
 	text-align: justify;
 }
+.item p{
+	text-align: left;
+}
 .nav_link_bio {
-	font-size: 26px;
+	font-size: 22px;
 	text-align: center;
 	flex-flow: row wrap;
 }
