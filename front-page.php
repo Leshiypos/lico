@@ -15,6 +15,9 @@ $latest = lico_latest();
 			</form>
 		</div>
 	</div>
+	<!-- Блок Elementor -->
+	<?php echo do_shortcode( ' [elementor-template id="201"]' ); ?>
+	<!-- Конец Блок Elementor -->
 	<section class="catalog">
 		<div class="container">
 			<h2 class="line">Новые лица сайта</h2>
@@ -99,9 +102,7 @@ $latest = lico_latest();
 							</a>
 						</div>
 						<?php
-							
 					}
-						
 					?>
 				</div>
 			</div>

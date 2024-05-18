@@ -124,6 +124,11 @@
 	}
 	.header a.btn.btn_small {
 		font-size: 22px;
+	}
+	footer a.btn, footer a.btn.btn_small {
+		font-size: 22px;
+		padding-top: 12px;
+		padding-bottom: 12px;
 
 	}
 	/* Социальный блок */
@@ -139,10 +144,31 @@
 		height: 40px;
 		width: 40px;
 	}
+	footer ul.social img{
+		height: 40px;
+		width: 40px;
+	}
 	.social li a{
 		margin-left: 0!important;
 		margin-right: 20px;
 	}
+	.copyright {
+		max-width: 90%;
+	}
+
+	.copyright p{
+		font-size: 12px!important;
+		text-align: center!important;
+	}
+	footer ul.social{
+		gap: 15px;
+	}
+	footer ul.social li{
+		margin-right: 0;
+	}
+	footer .social li a {
+        margin-right: 0;
+    }
 	/* Форма поиска */
 	.search_icon svg {
 		display: none;

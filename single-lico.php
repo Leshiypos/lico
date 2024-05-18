@@ -2,7 +2,6 @@
 
 get_header();
 
-global $lico_option;
 $post_id = get_the_ID();
 $post = get_post($post_id);
 $terms = wp_get_post_terms($post_id, LICO_TAX);

@@ -522,4 +522,60 @@ li.comment {
 	.social a:hover{
 		opacity: 1;
 	}
+	/* Футер */
 	
+	footer .container{
+		display: flex;
+		justify-content: center;
+		flex-flow: column;
+	}
+	footer .butn{
+		display: flex;
+		flex-flow: row wrap;
+		margin: 0 auto;
+	}
+		footer .butn a{
+			flex: 1 1 180px;
+			margin: 6px;
+			text-align: center;
+		}
+	footer a.btn {
+		text-decoration: none;
+		background: rgb(216 216 216);
+		border-radius: 4px;
+		color: rgb(255, 255, 255);
+		font-size: 16px;
+		padding: 5px 15px;
+	}
+	footer a.btn.btn_small {
+		text-decoration: none;
+		font-size: 16px;
+		padding: 5px 15px;
+		color: white;
+		background: #009fe3;
+		vertical-align: middle;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+	}
+
+	footer ul.social{
+		list-style: none;
+		display: flex;
+		align-content: center;
+		align-items: center;
+		margin: 30px auto 10px auto;
+	}
+	footer ul.social li{
+		margin-right: 15px;
+	}
+
+	.copyright {
+		max-width: 40%;
+		margin: 20px auto 20px auto;
+	}
+	.copyright p{
+		text-align: center;
+		font-weight: 600;
+		font-size: 12px;
+	}
