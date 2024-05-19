@@ -238,7 +238,7 @@ foreach ($pa as $pp) {
 				<?php } ?>
 					<!-- КОНЕЦ Блок рекламы -->
 
-					<!-- Персонализированный Блок рекламы -->
+					<!-- Публичный Блок рекламы -->
 					<?php 
 						$gallery_pers = $lico_option['advertising-block-pablic']; 
 						$but_adv_publ_off = get_field('but_adv_publ_off'); 
@@ -267,7 +267,7 @@ foreach ($pa as $pp) {
 					<?php 
 						}
 					?>
-					<!-- КОНЕЦ Персонализированный Блок рекламы -->
+					<!-- КОНЕЦ Публичный Блок рекламы -->
 
 					<!-- Персонализированный виджет -->
 					<?php  
@@ -309,18 +309,6 @@ foreach ($pa as $pp) {
 					<?php }
 					}
 					?>
-				
-
-
-
-
-
-
-
-
-
-
-
 
 					<!-- Начало цикла Рекламы-->
 					<?php  
@@ -331,6 +319,7 @@ foreach ($pa as $pp) {
 											'order'       => 'DESC',
 											'post_type'   => 'advertising',
 											'location_goods' => 'banner',
+											'lico_cat' => [$terms[0]->slug, 'vse-kategorii' ],
 											'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
 											) );
 
@@ -345,7 +334,7 @@ foreach ($pa as $pp) {
 								$adv_field_cpt = get_field('adv_field_cpt'); 
 								$adv_off_cpt = get_field('adv_status');
 								
-								if ($adv_field and $adv_off_cpt){ 
+								if ($adv_field_cpt and $adv_off_cpt){ 
 							?>
 							<?php 
 								$car_id[]=$post->ID; //Вносим в массив id поста
@@ -378,27 +367,6 @@ foreach ($pa as $pp) {
 					?> 
                 <!-- Окончание цикла Рекламы-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				
 			<!-- КОНЕЦ Сайдбар -->	
 			</div>
 				
@@ -452,7 +420,11 @@ foreach ($pa as $pp) {
 							<?php echo apply_filters('the_content', get_the_content()); ?>
 							<!-- Блок Биографии -->
 							<?php
-								$biography = get_field('biography');
+								$biography = get_field('biography'); //Поля раздела биография
+								
+								$adv_bio_status_all = get_field('but_adv_publ_off_bio'); //Переключатель выключения рекламы для всех категорий
+								$adv_bio_status = get_field('but_adv_off_bio'); //Переключатель выключения рекламы для личности
+								$adv_bio = get_field('adv_field_bio'); //Данные рекламы в разделе биография 
 								
 								// Вывод ссылок навигации
 								if ($biography){
@@ -467,10 +439,94 @@ foreach ($pa as $pp) {
 							
 							<?php 
 							// Вывод контента биографии
+							$i=0; //Счетчик вывода контента
 							if ($biography){
-								foreach ($biography as $bio_single){ ?>
+								foreach ($biography as $bio_single){
+							?>
 									<div id="<?php echo $bio_single['title']; ?>"> <?php  echo $bio_single['content'];?> </div>
-							<?php		
+							<?php	
+									// Вывод блока Рекламы в биографии
+									if ($i==1){			
+											$my_posts = get_posts( array(
+												'numberposts' => 10,
+												'orderby'     => 'date',
+												'order'       => 'DESC',
+												'post_type'   => 'advertising',
+												'location_goods' => 'biography',
+												'lico_cat' => [$terms[0]->slug, 'vse-kategorii' ],
+												'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+											) );
+											global $post;
+
+											foreach( $my_posts as $post ){
+												setup_postdata( $post );
+												?>
+													
+															<!-- Блок рекламы -->
+													<?php
+														$adv_field_cpt = "";
+														$adv_field_cpt = get_field('adv_field_cpt'); //Данные рекламы CPT
+														$adv_off_cpt = get_field('adv_status');		//Кнопка показа рекламы CPT 
+
+														
+														if ($adv_field_cpt and $adv_off_cpt and $adv_bio_status_all){ 
+													?>
+													<?php 
+														$car_id[]=$post->ID.'bio'; //Вносим в массив id поста
+													?>
+													<div class="adv_block">
+													<div class="f-carousel" id="myCarousel-<?php echo $post->ID.'bio'; ?>">
+														<!-- Начала слайда -->
+														<?php foreach ($adv_field_cpt as $adv_single){ ?>
+															<div class="f-carousel__slide">
+																<a href="<?php if ($adv_single['adv_link_cpt']) { echo $adv_single['adv_link_cpt']; } else {echo '#';} ?>">
+																	<figure>
+																		<img src="<?php echo wp_get_attachment_image_url($adv_single['adv_img_cpt'], 'full', false); ?>" />
+																		<?php if ($adv_single['adv_title_cpt']) { ?>
+																			<figcaption><?php echo $adv_single['adv_title_cpt']; ?></figcaption>
+																		<?php } ?>
+																	</figure>
+																</a>
+															</div>
+														<?php } ?>
+														<!-- КОНЕЦ слайда -->
+
+													</div>
+													</div>
+												<?php } ?>
+													<!-- КОНЕЦ Блок рекламы -->
+
+											<?php
+											}
+											wp_reset_postdata(); // сброс 
+												
+												// Реклама для личности
+													if($adv_bio and $adv_bio_status){ 
+														$car_id[]=$post->ID; //Вносим в массив id поста
+														?>
+														<div class="adv_block">
+															<div class="f-carousel" id="myCarousel-<?php echo $post->ID; ?>">
+																<!-- Начала слайда -->
+																<?php foreach ($adv_bio as $adv_single){ ?>
+																	<div class="f-carousel__slide">
+																		<a href="<?php if ($adv_single['adv_link']) { echo $adv_single['adv_link']; } else {echo '#';} ?>">
+																			<figure>
+																				<img src="<?php echo wp_get_attachment_image_url($adv_single['adv_img'], 'full', false); ?>" />
+																				<?php if ($adv_single['adv_title']) { ?>
+																					<figcaption><?php echo $adv_single['adv_title']; ?></figcaption>
+																				<?php } ?>
+																			</figure>
+																		</a>
+																	</div>
+																<?php } ?>
+																<!-- КОНЕЦ слайда -->
+														</div>
+														</div>
+													<?php }
+												// Конец Рекламы для личности
+										}
+										$i++;
+									// КОНЕЦ Вывод блока Рекламы в биографии
 									}
 								}
 							?>
