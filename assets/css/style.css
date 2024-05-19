@@ -494,6 +494,7 @@ li.comment {
 	border-top: 1px solid #000;
 }
 	.nav_link_bio a{
+		border-radius: 4px;
 		display: block;
 		padding: 10px;
 		background-color: #9d42ad;

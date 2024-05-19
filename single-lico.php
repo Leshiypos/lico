@@ -32,6 +32,10 @@ $rev_tab = get_post_meta($post_id, 'rev_tab', true);
 /* Фото */
 $photos = [];
 
+// часть id для карусели
+
+$car_id=array();
+
 $pa = [
 
 	'post_type' => LICO_PHOTO_CPT,
@@ -305,9 +309,99 @@ foreach ($pa as $pp) {
 					<?php }
 					}
 					?>
-					<!-- КОНЕЦ Сайдбар -->
-				</div>
+				
 
+
+
+
+
+
+
+
+
+
+
+
+					<!-- Начало цикла Рекламы-->
+					<?php  
+                                        // параметры по умолчанию
+										$my_posts = get_posts( array(
+											'numberposts' => 10,
+											'orderby'     => 'date',
+											'order'       => 'DESC',
+											'post_type'   => 'advertising',
+											'location_goods' => 'banner',
+											'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+											) );
+
+											global $post;
+                    foreach( $my_posts as $post ){
+						setup_postdata( $post );
+						?>
+							
+									<!-- Блок рекламы -->
+							<?php
+								$adv_field_cpt = "";
+								$adv_field_cpt = get_field('adv_field_cpt'); 
+								$adv_off_cpt = get_field('adv_status');
+								
+								if ($adv_field and $adv_off_cpt){ 
+							?>
+							<?php 
+								$car_id[]=$post->ID; //Вносим в массив id поста
+							?>
+							<div class="adv_block">
+							<div class="f-carousel" id="myCarousel-<?php echo $post->ID; ?>">
+								<!-- Начала слайда -->
+								<?php foreach ($adv_field_cpt as $adv_single){ ?>
+									<div class="f-carousel__slide">
+										<a href="<?php if ($adv_single['adv_link_cpt']) { echo $adv_single['adv_link_cpt']; } else {echo '#';} ?>">
+											<figure>
+												<img src="<?php echo wp_get_attachment_image_url($adv_single['adv_img_cpt'], 'advertising_thumb', false); ?>" />
+												<?php if ($adv_single['adv_title_cpt']) { ?>
+													<figcaption><?php echo $adv_single['adv_title_cpt']; ?></figcaption>
+												<?php } ?>
+											</figure>
+										</a>
+									</div>
+								<?php } ?>
+								<!-- КОНЕЦ слайда -->
+
+							</div>
+							</div>
+						<?php } ?>
+							<!-- КОНЕЦ Блок рекламы -->
+
+                    <?php
+                    }
+                    wp_reset_postdata(); // сброс 
+					?> 
+                <!-- Окончание цикла Рекламы-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+			<!-- КОНЕЦ Сайдбар -->	
+			</div>
+				
 				<div class="card_right">
 
 					<ul class="tabs">
@@ -576,19 +670,8 @@ foreach ($pa as $pp) {
 					</div>
 				</div>
 <!-- КОНЕЦ мобильная колонка -->
-
-			
-			
 			</div>
 		</div>
-
-
-
-
-
-
-
-
 		<?php
 			$latest = lico_by_category($category, 4);
 		?>
@@ -614,6 +697,31 @@ foreach ($pa as $pp) {
 			</div>
 		</div>
 	</section>
+<?php
+// Подключаем кастомные карусели
+	if ($car_id){ ?>
+		<script>
+			const optionscar = { 
+				infinite: true,
+				Navigation: false,
+				Dots : false,
+				Autoplay: {
+					timeout: 10000,
+					autoStart : true,
+				},
+			};
+			<?php foreach ($car_id as $id) {?>
+				const container<?php echo $id; ?> = document.getElementById("myCarousel-<?php echo $id; ?>");
+				if (container<?php echo $id; ?>){
+					new Carousel(container<?php echo $id; ?>, optionscar, { Autoplay }); //Реклама для страницы личности
+				}
+			<?php 
+			}
+			?>
+		</script>
+<?php
+	}
+?>
 <?php
 
 get_footer();

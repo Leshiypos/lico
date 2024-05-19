@@ -127,6 +127,50 @@ function lico_tax_cpt() {
 	];
 	
 	register_taxonomy(LICO_TAX, LICO_CPT, $args);
+
+	// РЕгистрация посттайпа Рекламы
+	register_post_type( 'advertising', array(
+        'labels'             => array(
+			'name'               => 'Реклама', // основное название для типа записи
+			'singular_name'      => 'Реклама', // название для одной записи этого типа
+			'add_new'            => 'Добавить рекламу', // для добавления новой записи
+			'add_new_item'       => 'Добавление рекламы', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование рекламы', // для редактирования типа записи
+			'new_item'           => 'Новая реклама', // текст новой записи
+			'view_item'          => 'Смотреть рекламу', // для просмотра записи этого типа.
+			'search_items'       => 'Искать Рекламу', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Реклама', // название меню
+        ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'advertising' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 25,
+        'menu_icon'          => 'dashicons-clipboard',
+        'supports'           => array( 'title', 'editor', 'thumbnail'),
+		'taxonomies'		 => array(LICO_TAX)
+    ) );
+
+   //Register Taxonomy
+
+    register_taxonomy(
+        'location_goods',
+        'advertising',
+        array(
+            'label' => 'Расположение',
+            'labels' => array('add new item' => 'Добавить новое расположение'),
+            'rewrite' => array( 'slug' => 'location_goods' ),
+            'hierarchical' => true,
+        )
+    );
 	
 }
 
