@@ -441,31 +441,6 @@ Redux::set_section(
 	)
 );
 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'      => "Реклама",
-		'id'         => 'media-gallery',
-		'desc'       => 'Тут можете создать банеры рекламы, которая отобразится на всех страницах личностей',
-		'subsection' => true,
-		'fields'     => array(
-			array(
-				'id'          => 'advertising-block-pablic',
-				'type'        => 'slides',
-				'title'       => 'Реклама на страницах',
-				'subtitle'    => 'Выберите рекламные банеры',
-				'desc'        => '',
-				'placeholder' => array(
-					'title'       => 'Введите рекламный текст',
-					'description' => esc_html__( 'Description Here', 'your-textdomain-here' ),
-					'url'         => 'Рекламаная ссылка'
-				),
-				'show'        => array( 'description' => false, 'title' => true, 'url' => true ),
-			),
-		),
-	)
-);
-
 /*
 
 Redux::set_section(

@@ -214,6 +214,10 @@
 	line-height: 1.5;
 	text-align: justify;
 }
+.container.search p{
+	text-align: center;
+}
+
 .item p{
 	text-align: left;
 }
@@ -277,7 +281,7 @@
 				height: 50px!important;
 			}
 	.adv_block {
-		max-width: 304px;
+		max-width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 	}

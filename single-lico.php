@@ -238,37 +238,6 @@ foreach ($pa as $pp) {
 				<?php } ?>
 					<!-- КОНЕЦ Блок рекламы -->
 
-					<!-- Публичный Блок рекламы -->
-					<?php 
-						$gallery_pers = $lico_option['advertising-block-pablic']; 
-						$but_adv_publ_off = get_field('but_adv_publ_off'); 
-						
-						if ($but_adv_publ_off) {
-					?>
-					<div class="adv_block">
-					<div class="f-carousel" id="adverPubl">
-						<!-- Начала слайда -->
-						<?php foreach ($gallery_pers as $adv_single){ ?>
-							<div class="f-carousel__slide">
-								<a href="<?php if ($adv_single['url']) { echo $adv_single['url']; } else {echo '#';} ?>">
-									<figure>
-										<img src="<?php echo wp_get_attachment_image_url($adv_single['attachment_id'], 'advertising_thumb', false); ?>" />
-										<?php if ($adv_single['title']) { ?>
-											<figcaption><?php echo $adv_single['title']; ?></figcaption>
-										<?php } ?>
-									</figure>
-								</a>
-							</div>
-						<?php } ?>
-						<!-- КОНЕЦ слайда -->
-
-					</div>
-					</div>
-					<?php 
-						}
-					?>
-					<!-- КОНЕЦ Публичный Блок рекламы -->
-
 					<!-- Персонализированный виджет -->
 					<?php  
 						$but_perswidget_off = get_field('but_perswidget_off'); //Тригер отключения персонализированного виджета
@@ -759,6 +728,7 @@ foreach ($pa as $pp) {
 		<script>
 			const optionscar = { 
 				infinite: true,
+				center: true,
 				Navigation: false,
 				Dots : false,
 				Autoplay: {

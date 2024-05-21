@@ -57,12 +57,13 @@ if (winW < 1000){
 	const container2 = document.getElementById("adverPubl");
 	const options = { 
 		infinite: true,
+		center: true,
 		Navigation: false,
 		Dots : false,
 		Autoplay: {
 			timeout: 10000,
 			autoStart : true,
-		  },
+		},
  
 	};
 
